@@ -19,7 +19,7 @@ class LANG(object):
 <b>⚜ ᴍʏ ɴᴀᴍᴇ : {}</b>\n
 <b>✦ ᴠᴇʀsɪᴏɴ : {}</b>
 <b>✦ ᴜᴘᴅᴀᴛᴇᴅ ᴏɴ : 27-March-2024</b>
-<b>✦ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://telegram.me/AvishkarPatil'>Avishkar Patil</a></b>\n
+<b>✦ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://telegram.me/Prime_Alok'>Alok</a></b>\n
 """
 
     STREAM_TEXT = """
