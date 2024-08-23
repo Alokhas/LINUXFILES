@@ -1,11 +1,17 @@
-FROM python:3.11
+RUN apt update && apt upgrade -y
 
-WORKDIR /app
-COPY . /app
+RUN apt install git curl python3-pip ffmpeg -y
 
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip3 install -U pip
 
-COPY . .
+RUN cd /
 
-CMD ["python", "-m", "FileStream"]
+RUN git clone https://github.com/Alokhas48/FileStreamBot
+
+RUN cd FileStreamBot
+
+WORKDIR /FileStreamBot
+
+RUN pip3 install -U -r requirements.txt
+
+CMD python3 PROCFILE
