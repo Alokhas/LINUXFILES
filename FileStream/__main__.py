@@ -11,7 +11,24 @@ from FileStream.bot import FileStream
 from FileStream.server import web_server
 from FileStream.bot.clients import initialize_clients
 
-# Configure logging
+from threading import Thread
+from flask import Flask
+
+app = Flask(__name__)
+
+# Define the endpoint
+@app.route('/')
+def hello_world():
+    return 'Hello World'
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8080)
+
+# Start the Flask app in a new thread
+flask_thread = Thread(target=run_flask)
+flask_thread.daemon = True
+flask_thread.start()
+
 logging.basicConfig(
     level=logging.INFO,
     datefmt="%d/%m/%Y %H:%M:%S",
@@ -76,5 +93,5 @@ if __name__ == "__main__":
     finally:
         loop.run_until_complete(cleanup())
         loop.stop()
-
-print("------------------------ Stopped Services ------------------------")
+        print("------------------------ Stopped Services ------------------------")
+    
