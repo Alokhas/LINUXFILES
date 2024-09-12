@@ -11,34 +11,24 @@ from FileStream.bot import FileStream
 from FileStream.server import web_server
 from FileStream.bot.clients import initialize_clients
 
-from threading import Thread
-from flask import Flask
-
-app = Flask(__name__)
-
-# Define the endpoint
-@app.route('/')
-def hello_world():
-    return 'Hello World'
-
-def run_flask():
-    app.run(host='0.0.0.0', port=8080)
-
-# Start the Flask app in a new thread
-flask_thread = Thread(target=run_flask)
-flask_thread.daemon = True
-flask_thread.start()
-
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     datefmt="%d/%m/%Y %H:%M:%S",
     format='[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(stream=sys.stdout),
-        handlers.RotatingFileHandler("streambot.log", mode="a", maxBytes=104857600, backupCount=2, encoding="utf-8")
+        handlers.RotatingFileHandler(
+            "streambot.log", 
+            mode="a", 
+            maxBytes=104857600, 
+            backupCount=2, 
+            encoding="utf-8"
+        )
     ]
 )
 
+# Set logging levels for libraries
 logging.getLogger("aiohttp").setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
@@ -93,5 +83,5 @@ if __name__ == "__main__":
     finally:
         loop.run_until_complete(cleanup())
         loop.stop()
-        print("------------------------ Stopped Services ------------------------")
-    
+
+print("------------------------ Stopped Services ------------------------")
