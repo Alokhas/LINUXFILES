@@ -3,7 +3,7 @@ Beautifulsoup4
 pytz
 shortzy
 
-pyrogram
+pyrotgfork
 aiohttp
 pyrofork
 python-dotenv
