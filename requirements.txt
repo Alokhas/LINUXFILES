@@ -14,3 +14,4 @@ dnspython
 requests
 jinja2
 flask
+pyrogram
