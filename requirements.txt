@@ -7,4 +7,3 @@ aiofiles
 dnspython
 requests
 jinja2
-git+https://github.com/MKN-BOTZ/pyrogram
